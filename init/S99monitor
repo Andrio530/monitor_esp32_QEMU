@@ -1,0 +1,25 @@
+#!/bin/sh
+
+DAEMON="monitor_esp32"
+PIDFILE="/var/run/monitor_esp32.pid"
+
+start() {
+    printf "Iniciando monitor_esp32: "
+    mkdir -p /var/log
+    start-stop-daemon -S -b -m -p $PIDFILE \
+        -x /usr/bin/monitor_esp32 -- /dev/ttyS1
+    echo "OK"
+}
+
+stop() {
+    printf "Parando monitor_esp32: "
+    start-stop-daemon -K -p $PIDFILE
+    echo "OK"
+}
+
+case "$1" in
+    start) start ;;
+    stop)  stop  ;;
+    restart) stop; sleep 1; start ;;
+    *) echo "Uso: $0 {start|stop|restart}"; exit 1 ;;
+esac

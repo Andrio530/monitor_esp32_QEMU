@@ -1,0 +1,5 @@
+config BR2_PACKAGE_MONITOR_ESP32
+    bool "monitor_esp32"
+    help
+      Aplicacao que le telemetria do ESP32 via UART,
+      grava log com persistencia e detecta alertas.

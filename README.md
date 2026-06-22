@@ -7,6 +7,41 @@ Aplicacao desenvolvida para a disciplina de Sistemas Embarcados — UNISINOS.
 Aplicacao em C compilada com Buildroot que roda em Linux embarcado (QEMU x86_64).
 Recebe telemetria do ESP32 via UART, grava log persistente e detecta alertas.
 
+## Arquitetura
++---------------------+
+|       ESP32         |
+|---------------------|
+| DHT22               |
+| TM1637              |
+| FreeRTOS            |
+| UART                |
++----------+----------+
+           |
+           | USB/UART
+           |
++----------v----------+
+| Linux Buildroot     |
+| Executando no QEMU  |
+|---------------------|
+| monitor_esp32       |
+| BusyBox             |
+| Kernel Linux        |
+| Sistema de arquivos |
++---------------------+
+
+## Comunicação entre os sistemas
+
+O ESP32 transmite periodicamente mensagens pela porta serial em formato textual:
+
+STATUS;TEMP:16.8;UMID:75.5;TMAX:20.0;UMAX:75.0;ALERTA:1;LEITURAS:120;TESTE:OFF
+
+A aplicação monitor_esp32 abre a interface serial, realiza o parsing da mensagem e extrai os campos utilizando:
+
+strtok()
+strncmp()
+atoi()
+atof()
+
 ## Requisitos atendidos
 
 - Inicializacao automatica no boot via /etc/init.d/S99monitor
@@ -73,6 +108,18 @@ cat /var/log/monitor_esp32_alertas.log
 - DHT22 — sensor de temperatura e umidade
 - Display TM1637
 - LED interno de alerta
+
+## Porta serial
+
+O ESP32 é conectado ao sistema Linux através da UART.
+
+Mapeamento:
+
+Ubuntu Host:
+/dev/ttyUSB0
+
+Linux emulado:
+/dev/ttyS1****
 
 ## Autor
 

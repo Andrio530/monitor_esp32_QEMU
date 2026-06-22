@@ -1,4 +1,3 @@
-cat > /home/andrio/embarcados/monitor_esp32/README.md << 'EOF'
 # Monitor ESP32 — Linux Embarcado (Grau B)
 
 Aplicacao desenvolvida para a disciplina de Sistemas Embarcados — UNISINOS.
@@ -78,4 +77,3 @@ cat /var/log/monitor_esp32_alertas.log
 ## Autor
 
 Andrio Epping — Engenharia da Computacao UNISINOS — 2026
-EOF

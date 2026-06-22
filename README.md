@@ -65,7 +65,7 @@ qemu-system-x86_64 -M pc -kernel bzImage \
 
 ```bash
 # Ver telemetria em tempo real
-tail -f /var/log/monitor_esp32.log
+tail -f /root/monitor_esp32.log
 
 # Alterar limite de temperatura
 echo "SET_TEMP_MAX=25.0" > /dev/ttyS1
@@ -80,7 +80,7 @@ echo "TESTE_ALERTA=ON" > /dev/ttyS1
 echo "RESET_LIMITES" > /dev/ttyS1
 
 # Ver alertas
-cat /var/log/monitor_esp32_alertas.log
+cat /root/monitor_esp32_alertas.log
 ```
 
 ## Hardware

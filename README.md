@@ -8,26 +8,7 @@ Aplicacao em C compilada com Buildroot que roda em Linux embarcado (QEMU x86_64)
 Recebe telemetria do ESP32 via UART, grava log persistente e detecta alertas.
 
 ## Arquitetura
-+---------------------+
-|       ESP32         |
-|---------------------|
-| DHT22               |
-| TM1637              |
-| FreeRTOS            |
-| UART                |
-+----------+----------+
-           |
-           | USB/UART
-           |
-+----------v----------+
-| Linux Buildroot     |
-| Executando no QEMU  |
-|---------------------|
-| monitor_esp32       |
-| BusyBox             |
-| Kernel Linux        |
-| Sistema de arquivos |
-+---------------------+
+<img width="1412" height="391" alt="Arquiteutra" src="https://github.com/user-attachments/assets/df0c15df-0ef3-49ee-90d5-f177f3b7e26d" />
 
 ## Comunicação entre os sistemas
 

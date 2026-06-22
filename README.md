@@ -8,7 +8,7 @@ Aplicacao em C compilada com Buildroot que roda em Linux embarcado (QEMU x86_64)
 Recebe telemetria do ESP32 via UART, grava log persistente e detecta alertas.
 
 ## Arquitetura
-<img width="1412" height="391" alt="Arquiteutra" src="https://github.com/user-attachments/assets/df0c15df-0ef3-49ee-90d5-f177f3b7e26d" />
+<img width="1412" height="391" alt="Arquitetura2" src="https://github.com/user-attachments/assets/6fc6d058-45b3-43da-8498-480d95401936" />
 
 ## Comunicação entre os sistemas
 
